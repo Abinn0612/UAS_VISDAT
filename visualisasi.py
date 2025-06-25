@@ -78,6 +78,9 @@ def bar_chart(filtered_df):
 
 def stacked_bar(df):
     df_plot = df[['Provinsi', 'Dosen 2017', 'Mahasiswa 2017', 'Dosen 2018', 'Mahasiswa 2018']].copy()
+    if df_plot.empty:
+        return go.Figure().update_layout(title="Tidak ada data untuk ditampilkan")
+    
     df_grouped = df_plot.groupby('Provinsi').sum().reset_index()
     df_grouped['Total'] = df_grouped[['Dosen 2017', 'Mahasiswa 2017', 'Dosen 2018', 'Mahasiswa 2018']].sum(axis=1)
     df_grouped = df_grouped.sort_values('Total', ascending=False)
@@ -97,3 +100,4 @@ def stacked_bar(df):
         height=600
     )
     return fig
+

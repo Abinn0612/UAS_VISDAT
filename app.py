@@ -43,7 +43,7 @@ st.plotly_chart(bar_chart(filtered_df), use_container_width=True)
 
 # Stacked Bar
 st.subheader("📊 Perbandingan Dosen dan Mahasiswa (Stacked Bar Interaktif)")
-st.plotly_chart(stacked_bar(df), use_container_width=True)
+st.plotly_chart(stacked_bar(filtered_df), use_container_width=True)
 
 # Table dan Download
 st.subheader("📄 Data Lengkap")
